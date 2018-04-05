@@ -12,10 +12,8 @@
 
 
 class doctor name age sidekick =
-
-    object (self)
-
-        initializer print_endline ("Amazing event : the Doctor is here, from now & for undetermined time!\n")
+    object 
+        initializer print_endline ("Amazing event !!! the Doctor is here, from now & for undetermined time!\n")
 
         val _name:string = name
         val mutable _age:int = age
@@ -28,7 +26,7 @@ class doctor name age sidekick =
         method travel_in_time (start:int) (arrival:int) =
         _age <- age + abs(arrival - start);
         print_endline 
-        ("              _
+        ("             _
                       (~)
                      (@@@)
             _________|___|_________
@@ -60,10 +58,8 @@ class doctor name age sidekick =
          |~~~~~~~~~~~~~~~~~~~~~~~~~~~|
          |---------------------------|
          \n\n"
-        ^ ">>>> The Tardis travels from " ^ string_of_int start ^ " to " ^ string_of_int arrival ^ "..! <<<<<\n")
-
-        method use_sonic_screwdriver = print_endline "Whiiiwhiiiwhiii Whiiiwhiiiwhiii Whiiiwhiiiwhii"
-
-        method private regenerate = new doctor name age sidekick
+        ^ ">>>> The Tardis travels from " ^ string_of_int start ^ " to " ^ string_of_int arrival ^ "..! <<<<<\n");
+        method use_sonic_screwdriver = print_endline ("Whiiiwhiiiwhiii Whiiiwhiiiwhiii Whiiiwhiiiwhii")
+        method private regenarate = _hp <- 100
     end
 

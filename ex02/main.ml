@@ -10,10 +10,24 @@
 (*                                                                            *)
 (* ************************************************************************** *)
 
-let () =
-	let jamie = new People.people "Companion Jamie McCrimmon" in
-	let inspector = new Doctor.doctor "inspector out of Space" 42 jamie in
-	print_endline inspector#to_string;
-	inspector#talk;
-	inspector#travel_in_time 5480 2018;
-	inspector#use_sonic_screwdriver
+
+let main () =
+    Random.self_init ();
+
+    let sidekick = new People.people "Jamie McCrimmon" in
+        let doctor = new Doctor.doctor "aka the doctor warrior" 42 sidekick in
+            print_endline (sidekick#to_string);
+            sidekick#talk;
+            sidekick#die;
+            print_endline (doctor#to_string);
+            doctor#talk;
+            doctor#travel_in_time 2018 3142;  
+            doctor#use_sonic_screwdriver;
+            let dalek = new Dalek.dalek in
+                print_endline (dalek#to_string);
+                dalek#talk;
+                dalek#exterminate sidekick;
+                print_endline (dalek#to_string);
+                dalek#die
+
+let () = main ()

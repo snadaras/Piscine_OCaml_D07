@@ -1,32 +1,27 @@
 (* ************************************************************************** *)
 (*                                                                            *)
 (*                                                        :::      ::::::::   *)
-(*   army.ml                                            :+:      :+:    :+:   *)
+(*   people.ml                                          :+:      :+:    :+:   *)
 (*                                                    +:+ +:+         +:+     *)
 (*   By: snadaras <snadaras@student.42.fr>          +#+  +:+       +#+        *)
 (*                                                +#+#+#+#+#+   +#+           *)
-(*   Created: 2018/04/04 13:26:59 by snadaras          #+#    #+#             *)
-(*   Updated: 2018/04/04 13:27:08 by snadaras         ###   ########.fr       *)
+(*   Created: 2018/04/04 13:24:15 by snadaras          #+#    #+#             *)
+(*   Updated: 2018/04/04 13:24:21 by snadaras         ###   ########.fr       *)
 (*                                                                            *)
 (* ************************************************************************** *)
 
 
-class ['a] army (lst: 'a list) =
-object
+class people name =
+    object
+        val name:string = name
+        val mutable hp:int = 100
+        
+        initializer print_endline "A new people is linked to the amazing dr Who !"
 
-    val mutable member = lst
+        method to_string = "name : " ^ name ^ ", hp : " ^ (string_of_int hp)
 
-    method add (elem: 'a) = member <- member @ [elem]
+        method talk = print_endline ("I'm " ^ name ^ "! Do you know the Doctor?")
 
-    method delete =
-        try member <- List.tl member with
-            | _ -> ()
+        method die = print_endline "Aaaarghh!"; hp <- 0
 
-    method print_army =
-        let rec loop lst =
-            match lst with
-            | head::tail -> print_endline head#to_string; loop tail
-            | [] -> ()
-        in loop member
-
-end
+    end
